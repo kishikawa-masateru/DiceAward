@@ -105,6 +105,13 @@ public class AwardList {
 	}
 
 	/**
+	 * 報酬リストを表示する
+	 */
+	public void show() {
+		System.out.println(this);
+	}
+
+	/**
 	 * 報酬リストからコンソール出力用フォーマットを作成
 	 * @return コンソール出力用のフォーマット
 	 */
