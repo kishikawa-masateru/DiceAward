@@ -1,5 +1,15 @@
 package operator;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,14 +32,30 @@ public class AwardList {
 	 * 3．読み込んだ報酬を awardList に追加<br>
 	 */
 	public AwardList(String awardPath) {
+		this.awardPath = awardPath;
+		awardList = new ArrayList<>();
 
+		File awardFile = new File(this.awardPath);
+
+		if (!awardFile.exists()) {
+			System.err.println("ファイルが存在しません");
+			System.exit(1);
+		}
+
+		try (BufferedReader reader = new BufferedReader(
+				new InputStreamReader(new FileInputStream(awardFile), "UTF-8"))) {
+
+			reader.lines().forEach(award -> awardList.add(award));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * index 番目の報酬を award に置き換える
 	 */
 	public void replase(int index, String award) {
-
+		awardList.set(index, award);
 	}
 
 	/**
@@ -37,14 +63,14 @@ public class AwardList {
 	 * @return index 番目の報酬
 	 */
 	public String get(int index) {
-
+		return awardList.get(index);
 	}
 
 	/**
 	 * @return 報酬の数
 	 */
 	public int count() {
-
+		return awardList.size();
 	}
 
 	/**
@@ -52,14 +78,22 @@ public class AwardList {
 	 * @param award
 	 */
 	public void add(String award) {
-
+		awardList.add(award);
 	}
 
 	/**
 	 * 報酬のリストをファイルに書き込む
 	 */
 	public void writeToFile() {
+		try (PrintWriter writer = new PrintWriter(
+				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(awardPath), "UTF-8")))) {
 
+			for (String award : awardList) {
+				writer.println(award);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -67,7 +101,7 @@ public class AwardList {
 	 * @param index 報酬リストで削除したいインデックス
 	 */
 	public void remove(int index) {
-
+		awardList.remove(index);
 	}
 
 	/**
@@ -76,6 +110,13 @@ public class AwardList {
 	 */
 	@Override
 	public String toString() {
+		int i = 0;
+		StringBuilder builder = new StringBuilder();
 
+		for (String award : awardList) {
+			builder.append(i++).append(" : ").append(award + "\n");
+		}
+
+		return builder.toString();
 	}
 }
