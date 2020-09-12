@@ -42,7 +42,6 @@ public class AwardList {
 
 	/**
 	 * @return 報酬の数
-	 * @return
 	 */
 	public int count() {
 
@@ -68,6 +67,15 @@ public class AwardList {
 	 * @param index 報酬リストで削除したいインデックス
 	 */
 	public void remove(int index) {
+
+	}
+
+	/**
+	 * 報酬リストからコンソール出力用フォーマットを作成
+	 * @return コンソール出力用のフォーマット
+	 */
+	@Override
+	public String toString() {
 
 	}
 }
