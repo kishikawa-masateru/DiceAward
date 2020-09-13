@@ -83,5 +83,4 @@ public class Main {
 		System.out.print("インデックス...");
 		return sc.nextInt();
 	}
-
 }
