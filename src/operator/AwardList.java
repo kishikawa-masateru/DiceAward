@@ -38,7 +38,7 @@ public class AwardList {
 		File awardFile = new File(this.awardPath);
 
 		if (!awardFile.exists()) {
-			System.err.println("ファイルが存在しません");
+			System.err.println("ファイル award.txt が存在しません");
 			System.exit(1);
 		}
 
