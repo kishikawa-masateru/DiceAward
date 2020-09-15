@@ -47,19 +47,19 @@ public class Main {
 		// コマンドライン引数がある場合は，その種類に応じて処理を分岐する
 		else {
 			switch (args[0]) {
-				case "set":
-					// 編集前状態を表示
-					awardList.show();
-
-					// 指定した報酬を上書きする
-					awardList.replase(getIndex(), getAward());
-					break;
 				case "add":
 					// 編集前状態を表示
 					awardList.show();
 
 					// 報酬を追加する
 					awardList.add(getAward());
+					break;
+				case "set":
+					// 編集前状態を表示
+					awardList.show();
+
+					// 指定した報酬を上書きする
+					awardList.replase(getIndex(), getAward());
 					break;
 				case "remove":
 					// 編集前状態を表示
