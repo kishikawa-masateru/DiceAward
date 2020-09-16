@@ -17,8 +17,7 @@ import java.util.List;
  * ・指定した報酬の書き換え<br>
  * ・報酬の削除<br>
  * ・報酬をファイルへ書き込む
- * @author masateru
- *
+ * @author kishikawa-masateru
  */
 public class AwardList {
 	private List<String> awardList;	// 報酬リスト

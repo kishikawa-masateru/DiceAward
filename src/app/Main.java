@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 import operator.AwardList;
 
+/*****************************
+ * DiceAwardエントリポイント
+ * @author kishikawa-masateru
+ *****************************/
 public class Main {
 
 	static AwardList awardList; // 報酬リスト
@@ -47,34 +51,34 @@ public class Main {
 		// コマンドライン引数がある場合は，その種類に応じて処理を分岐する
 		else {
 			switch (args[0]) {
-				case "add":
-					// 編集前状態を表示
-					awardList.show();
+			case "add":
+				// 編集前状態を表示
+				awardList.show();
 
-					// 報酬を追加する
-					awardList.add(getAward());
-					break;
-				case "set":
-					// 編集前状態を表示
-					awardList.show();
+				// 報酬を追加する
+				awardList.add(getAward());
+				break;
+			case "set":
+				// 編集前状態を表示
+				awardList.show();
 
-					// 指定した報酬を上書きする
-					awardList.replase(getIndex(), getAward());
-					break;
-				case "remove":
-					// 編集前状態を表示
-					awardList.show();
+				// 指定した報酬を上書きする
+				awardList.replase(getIndex(), getAward());
+				break;
+			case "remove":
+				// 編集前状態を表示
+				awardList.show();
 
-					// 指定した報酬を削除する
-					awardList.remove(getIndex());
-					break;
-				case "show":
-					// 中身の表示
-					awardList.show();
+				// 指定した報酬を削除する
+				awardList.remove(getIndex());
+				break;
+			case "show":
+				// 中身の表示
+				awardList.show();
 
-					// そのまま終了
-					sc.close();
-					System.exit(0);
+				// そのまま終了
+				sc.close();
+				System.exit(0);
 			}
 
 			// 結果の表示
@@ -86,7 +90,7 @@ public class Main {
 
 	/**
 	 * コンソールから，報酬を取得する
-	 * 
+	 *
 	 * @return 報酬
 	 */
 	private static String getAward() {
@@ -96,7 +100,7 @@ public class Main {
 
 	/**
 	 * コンソールから，インデックスを取得する
-	 * 
+	 *
 	 * @return 編集する報酬リストのインデックス
 	 */
 	private static int getIndex() {
